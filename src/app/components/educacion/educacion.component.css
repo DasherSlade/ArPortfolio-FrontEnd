@@ -1,0 +1,27 @@
+#educacion .titular{
+    padding-bottom: 7%;
+}
+
+#educacion .card{
+    margin-bottom: 5%;
+    max-width: 450px;
+}
+
+#educacion .row{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+#educacion .card:hover{
+    opacity: 0.8;
+}
+
+#educacion .card-body h4{
+    font-size: 20px;
+}
+
+#educacion .card-body p{
+    font-size: 12px;
+    line-height: 20px;
+}

@@ -1,0 +1,23 @@
+.logo-de-ap{
+    width: 150px;
+}
+
+.container-fluid .navbar-nav .bi{
+    color: white;
+}
+
+.bi-instagram:hover{
+    color: rgb(189, 51, 143) !important;
+}
+
+.bi-linkedin:hover{
+    color: rgb(127, 187, 255) !important;
+}
+
+.bi-github:hover{
+    color: rgb(209, 117, 81) !important;
+}
+
+.door:hover{
+    transform: translateY(-4px) scale(1.10);
+}

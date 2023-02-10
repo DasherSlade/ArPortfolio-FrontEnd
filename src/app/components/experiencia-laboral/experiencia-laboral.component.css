@@ -1,0 +1,23 @@
+.card-estilo{
+    max-width: 26rem;
+    margin-bottom: 15%;
+    margin-top: 5%;
+}
+
+.info-extra h3{
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.info-extra p{
+    font-size: 16px;
+    line-height: 25px;
+    color: #474747;
+    margin-bottom: 12px;
+    text-align: center;
+    margin-bottom: 25%;
+}
