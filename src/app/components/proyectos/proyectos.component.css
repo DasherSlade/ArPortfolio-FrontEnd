@@ -1,0 +1,39 @@
+#proyectos .card{
+    max-width: 675px;
+    margin: 0 10px;
+    margin-bottom: 5%;
+    filter: grayscale(1);
+    object-fit: cover;
+    transition: .5s;
+}
+
+#proyectos .row{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+#proyectos .card img{
+    max-height: 500px;
+}
+
+#proyectos .card:hover{
+    filter: grayscale(0);
+}
+
+#proyectos .card-body{
+    position: absolute;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+    color: #d64a6f;
+    width: 100%;
+    padding: 2px;
+    opacity: 0;
+    bottom: -40px;
+    transition: .5s;
+}
+
+#proyectos .card:hover .card-body{
+    opacity: 1;
+    bottom: 0;
+}
