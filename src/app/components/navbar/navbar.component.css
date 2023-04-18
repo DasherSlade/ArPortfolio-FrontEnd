@@ -21,3 +21,7 @@
 .door:hover{
     transform: translateY(-4px) scale(1.10);
 }
+
+.btn{
+    margin-left: -7%;
+}

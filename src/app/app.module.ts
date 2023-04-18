@@ -15,6 +15,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { interceptorProvider } from './service/interceptor-service';
 
 
 @NgModule({
@@ -36,9 +38,13 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
     BrowserModule,
     AppRoutingModule,
     NgCircleProgressModule.forRoot ({ }),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    interceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
