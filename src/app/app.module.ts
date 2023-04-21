@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { interceptorProvider } from './service/interceptor-service';
+import { NewExperienciaComponent } from './components/experiencia-laboral/new-experiencia.component';
+import { EditExperienciaComponent } from './components/experiencia-laboral/edit-experiencia.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { interceptorProvider } from './service/interceptor-service';
     FooterComponent,
     LoginComponent,
     PortfolioComponent,
+    NewExperienciaComponent,
+    EditExperienciaComponent,
   ],
   imports: [
     BrowserModule,

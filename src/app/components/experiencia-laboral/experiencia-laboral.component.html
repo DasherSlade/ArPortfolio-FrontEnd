@@ -2,43 +2,25 @@
     <div class="container">
       <h3 class="titular text-center"> Experiencia laboral</h3>
     <div class="row align-items-center mx-5">
+      <button type="button" class="btn btn-dark" routerLink="/nuevaexp" *ngIf="isLogged">
+        Nueva Experiencia
+      </button>
   
      <!-- tarjeta con foto -->
-     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 card-estilo">
-       <div class="card">
-        <img src="../../../assets/img/trabajo-ejemplo.png" class="card-img-top" alt="img-laboral">
-          <div class="card-body">
+     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 card-estilo"> 
+      <div class="card">
+        <img src="../../../assets/img/trabajo-ejemplo.png" class="card-img-top" alt="img-laboral">  
+        <div class="card-body">
             <p class="card-text">Toda informacion de contacto aqui.</p></div>
        </div>
      </div>
-  
     <!-- informacion extra -->
-     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 info-extra">
-       <h3>Lugar de trabajo</h3>
-         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex at nisi vitae, facilis sint, eos non labore
-         molestias quaerat perferendis quae saepe distinctio facere in quos omnis cum sapiente esse itaque recusandae
-         dignissimos, aspernatur provident. Itaque, neque deserunt tenetur labore facere adipisci, iste saepe amet
-         laudantium est perspiciatis a vitae.</p>
-      </div>
-  
-    <!-- tarjeta con foto -->
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 card-estilo">
-      <div class="card">
-        <img src="../../../assets/img/trabajo-ejemplo.png" class="card-img-top" alt="img-laboral">
-          <div class="card-body">
-            <p class="card-text">Toda informacion de contacto aqui.</p>
-          </div>
-      </div>
-    </div>
-  
-    <!-- informacion extra -->
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 info-extra">
-      <h3>Lugar de trabajo</h3>
-         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex at nisi vitae, facilis sint, eos non labore
-         molestias quaerat perferendis quae saepe distinctio facere in quos omnis cum sapiente esse itaque recusandae
-         dignissimos, aspernatur provident. Itaque, neque deserunt tenetur labore facere adipisci, iste saepe amet
-         laudantium est perspiciatis a vitae.</p></div>
-      
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 info-extra" *ngFor="let Experiencia of expe">
+      <button *ngIf="isLogged" type="button" class="btn-exp" routerLink="/editexp/{{Experiencia.id}}"><i class="bi bi-pencil-square"></i>Actualizar experiencia</button>
+      <button *ngIf="isLogged" type="button" class="btn-del ml-2" (click)="delete(Experiencia.id)"><i class="bi bi-x-circle"></i>Borrar experiencia</button>
+      <h3>{{Experiencia.nombreExp}}</h3>
+         <p>{{Experiencia.descripcionExp}}</p>
+      </div>   
       </div>
      </div>
     </section>
