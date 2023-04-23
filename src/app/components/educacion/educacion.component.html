@@ -1,35 +1,25 @@
 <section id="educacion">
-    <div class="container" style="margin-bottom: 10%;">
-      <h3 class="titular text-center mb-5 mt-5"> Formación educativa</h3>
-      <div class="row">
-          
+  <div class="container" style="margin-bottom: 10%;">
+    <h3 class="titular text-center mb-5 mt-5"> Formación educativa</h3>
+    <div class="row">
+      <button type="button" class="btn btn-dark" routerLink="/nuevaedu" *ngIf="isLogged">
+        Nueva Educacion
+      </button>
+
       <!-- lugar 1 -->
       <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
         <div class="card shadow">
           <img src="../../../assets/img/logocolegio.png" class="card-img-top img-fluid" alt="logo-cole">
-            <div class="card-body">
-              <h4 class="card-title">Institucion educativa</h4>
-              <p class="card-text"><h5>Nombre del titulo</h5> This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div></div>
+          <div class="card-body" *ngFor="let Educacion of educacion ">
+            <button *ngIf="isLogged" type="button" class="btn-exp" routerLink="/editedu/{{Educacion.id}}"><i
+                class="bi bi-pencil-square"></i>Actualizar experiencia</button>
+            <button *ngIf="isLogged" type="button" class="btn-del ml-2" (click)="delete(Educacion.id)"><i
+                class="bi bi-x-circle"></i>Borrar experiencia</button>
+            <h4 class="card-title">{{Educacion.nombreEdu}}</h4>
+            <p class="card-text">{{Educacion.descripcionEdu}}
+          </div>
+        </div>
       </div>
-
-      <!-- lugar 2 -->
-      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-        <div class="card shadow">
-          <img src="../../../assets/img/logocolegio.png" class="card-img-top img-fluid" alt="logo-cole">
-            <div class="card-body">
-              <h4 class="card-title">Institucion educativa</h4>
-              <p class="card-text"><h5>Nombre del titulo</h5> This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </div></div>
-      </div>
-          
-      <!-- lugar 3 -->
-      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-        <div class="card shadow">
-          <img src="../../../assets/img/logocolegio.png" class="card-img-top img-fluid" alt="logo-cole">
-            <div class="card-body">
-              <h4 class="card-title">Institucion educativa</h4>
-              <p class="card-text"><h5>Nombre del titulo</h5> This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</div></div>
-      </div>
-          
-     </div>
     </div>
-  </section>
+  </div>
+</section>
