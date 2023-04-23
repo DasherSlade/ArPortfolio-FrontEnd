@@ -1,14 +1,19 @@
 <section id="habilidades">
     <div class="row">
     <h3 class="titular-habilidad">HABILIDADES</h3>
+    <div class="col-lg-2">
+        <button type="button" routerLink="/newskill" class="btn btn-dark" *ngIf="isLogged">Nueva skill</button>
+    </div>
         
     <!-- skill 1 -->
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4" *ngFor="let skill of skill">
         <circle-progress
-            [percent]="85"
+            [percent]="(skill.porcentaje)"
             [radius]="120"
-            [imageSrc]="'../../../assets/img/logo-html.png'"
-            [showImage]="true"
+            [imageSrc]="''"
+            [title]="(skill.nombre)"
+            [showImage]="false"
+            [showTitle]="true"
             [imageHeight]="100"
             [imageWidth]="100"
             [outerStrokeWidth]="16"
@@ -18,40 +23,11 @@
             [animation]="true"
             [animationDuration]="600">
         </circle-progress>
-    </div>
-    <!-- skill 2 -->
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-        <circle-progress
-        [percent]="85"
-        [radius]="120"
-        [imageSrc]="'../../../assets/img/logo-html.png'"
-        [showImage]="true"
-        [imageHeight]="100"
-        [imageWidth]="100"
-        [outerStrokeWidth]="16"
-        [innerStrokeWidth]="4"
-        [outerStrokeColor]="'white'"
-        [innerStrokeColor]="'white'"
-        [animation]="true"
-        [animationDuration]="600">
-        </circle-progress>
-    </div>
-    <!-- skill 3 -->
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-        <circle-progress
-        [percent]="85"
-        [radius]="120"
-        [imageSrc]="'../../../assets/img/logo-html.png'"
-        [showImage]="true"
-        [imageHeight]="100"
-        [imageWidth]="100"
-        [outerStrokeWidth]="16"
-        [innerStrokeWidth]="4"
-        [outerStrokeColor]="'white'"
-        [innerStrokeColor]="'white'"
-        [animation]="true"
-        [animationDuration]="600">
-        </circle-progress>
+
+        <button *ngIf="isLogged" type="button" class="btn-skill" routerLink="/editskill/{{skill.id}}"><i
+            class="bi bi-pencil-square"></i></button>
+        <button *ngIf="isLogged" type="button" class="btn-del ml-2" (click)="delete(skill.id)"><i
+            class="bi bi-x-circle"></i></button>
     </div>
    </div>
 </section>

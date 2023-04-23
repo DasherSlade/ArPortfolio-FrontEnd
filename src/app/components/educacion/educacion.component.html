@@ -2,16 +2,18 @@
   <div class="container" style="margin-bottom: 10%;">
     <h3 class="titular text-center mb-5 mt-5"> Formación educativa</h3>
     <div class="row">
+      <div class="col-lg-2">
       <button type="button" class="btn btn-dark" routerLink="/nuevaedu" *ngIf="isLogged">
         Nueva Educacion
       </button>
+    </div>
 
       <!-- lugar 1 -->
       <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
         <div class="card shadow">
           <img src="../../../assets/img/logocolegio.png" class="card-img-top img-fluid" alt="logo-cole">
           <div class="card-body" *ngFor="let Educacion of educacion ">
-            <button *ngIf="isLogged" type="button" class="btn-exp" routerLink="/editedu/{{Educacion.id}}"><i
+            <button *ngIf="isLogged" type="button" class="btn-edu" routerLink="/editedu/{{Educacion.id}}"><i
                 class="bi bi-pencil-square"></i>Actualizar experiencia</button>
             <button *ngIf="isLogged" type="button" class="btn-del ml-2" (click)="delete(Educacion.id)"><i
                 class="bi bi-x-circle"></i>Borrar experiencia</button>
