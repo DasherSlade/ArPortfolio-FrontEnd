@@ -1,27 +1,27 @@
 <section id="experiencia">
-    <div class="container">
-      <h3 class="titular text-center"> Experiencia laboral</h3>
+  <div class="container">
+    <h3 class="titular text-center"> Experiencia laboral</h3>
+    <button type="button" class="btn btn-dark nueva-exp" routerLink="/nuevaexp" *ngIf="isLogged">
+      Nueva Experiencia
+    </button>
     <div class="row align-items-center mx-5">
-      <button type="button" class="btn btn-dark" routerLink="/nuevaexp" *ngIf="isLogged">
-        Nueva Experiencia
-      </button>
-  
-     <!-- tarjeta con foto -->
-     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 card-estilo"> 
-      <div class="card">
-        <img src="../../../assets/img/trabajo-ejemplo.png" class="card-img-top" alt="img-laboral">  
-        <div class="card-body">
-            <p class="card-text">Toda informacion de contacto aqui.</p></div>
-       </div>
-     </div>
-    <!-- informacion extra -->
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 info-extra" *ngFor="let Experiencia of expe">
-      <button *ngIf="isLogged" type="button" class="btn-exp" routerLink="/editexp/{{Experiencia.id}}"><i class="bi bi-pencil-square"></i>Actualizar experiencia</button>
-      <button *ngIf="isLogged" type="button" class="btn-del ml-2" (click)="delete(Experiencia.id)"><i class="bi bi-x-circle"></i>Borrar experiencia</button>
-      <h3>{{Experiencia.nombreExp}}</h3>
-         <p>{{Experiencia.descripcionExp}}</p>
-      </div>   
+      <!-- tarjeta con foto para cada experiencia -->
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 card-estilo" *ngFor="let experiencia of expe">
+        <div class="card">
+          <!--botones de edicion-->
+          <div class="btn-group">
+            <button *ngIf="isLogged" type="button" class="edit-exp rounded-circle"
+              routerLink="/editexp/{{experiencia.id}}"><i class="bi bi-pencil-square"></i></button>
+            <button *ngIf="isLogged" type="button" class="edit-exp rounded-circle" (click)="delete(experiencia.id)"><i
+                class="bi bi-x-circle"></i></button>
+          </div>
+          <div class="card-body">
+            <img src="../../../assets/img/trabajo-ejemplo.png" class="card-img-top mb-3" alt="img-laboral">
+            <h3>{{experiencia.nombreExp}}</h3>
+            <p>{{experiencia.descripcionExp}}</p>
+          </div>
+        </div>
       </div>
-     </div>
-    </section>
-  
+    </div>
+  </div>
+</section>

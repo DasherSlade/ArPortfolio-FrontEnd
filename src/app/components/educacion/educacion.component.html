@@ -1,24 +1,24 @@
 <section id="educacion">
-  <div class="container" style="margin-bottom: 10%;">
+  <div class="container my-5">
     <h3 class="titular text-center mb-5 mt-5"> Formación educativa</h3>
+    <button type="button" class="btn btn-dark new-edu" routerLink="/nuevaedu" *ngIf="isLogged">
+      Nueva Educacion
+    </button>
     <div class="row">
-      <div class="col-lg-2">
-      <button type="button" class="btn btn-dark" routerLink="/nuevaedu" *ngIf="isLogged">
-        Nueva Educacion
-      </button>
-    </div>
-
-      <!-- lugar 1 -->
-      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-        <div class="card shadow">
+      <!-- Card -->
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" *ngFor="let Educacion of educacion">
+        <div class="card shadow p-3">
+          <div class="btn-group">
+            <!--Botones de edición-->
+            <button *ngIf="isLogged" type="button" class="rounded-circle" routerLink="/editedu/{{Educacion.id}}"><i
+              class="bi bi-pencil-square"></i></button>
+            <button *ngIf="isLogged" type="button" class="rounded-circle" (click)="delete(Educacion.id)"><i
+                class="bi bi-x-circle"></i></button>
+          </div>
           <img src="../../../assets/img/logocolegio.png" class="card-img-top img-fluid" alt="logo-cole">
-          <div class="card-body" *ngFor="let Educacion of educacion ">
-            <button *ngIf="isLogged" type="button" class="btn-edu" routerLink="/editedu/{{Educacion.id}}"><i
-                class="bi bi-pencil-square"></i>Actualizar experiencia</button>
-            <button *ngIf="isLogged" type="button" class="btn-del ml-2" (click)="delete(Educacion.id)"><i
-                class="bi bi-x-circle"></i>Borrar experiencia</button>
+          <div class="card-body bg-light">
             <h4 class="card-title">{{Educacion.nombreEdu}}</h4>
-            <p class="card-text">{{Educacion.descripcionEdu}}
+            <p class="card-text text-dark">{{Educacion.descripcionEdu}}</p>
           </div>
         </div>
       </div>

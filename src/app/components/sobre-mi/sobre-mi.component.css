@@ -3,12 +3,13 @@
     margin: auto;
     padding: 100px 15px;
     color: #111135;
-    display: flex; 
 }
 
 .foto-de-perfil{
-    max-width: 400px;
+    max-width: 350px;
+    margin-top: 60px;
     margin-right: 80px;
+    align-items: end;
 }
 
 .foto-de-perfil img{
@@ -16,6 +17,7 @@
     width: 100%;
     border-radius: 200px;
     background-color: #f3f3f3;
+    margin-left: 20px;
 }
 
 .sobre-mi h2{
@@ -43,3 +45,20 @@
     color: #474747;
     margin-bottom: 12px;
 }
+
+.edit-persona {
+    margin-bottom: 55px;
+    right: 8rem;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    transition: background-color 0.6s ease-out, color 0.6s ease-out;
+  }
+  
+  .edit-persona:hover {
+    background-color: #d64a6f;
+    cursor: pointer;
+  }

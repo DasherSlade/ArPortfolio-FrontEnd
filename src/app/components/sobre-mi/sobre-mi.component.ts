@@ -26,7 +26,7 @@ export class SobreMiComponent implements OnInit {
 
   cargarPersona() {
     this.personaService.detail(1).subscribe(data => {
-      this.persona = data
-    })
+      this.persona = data}
+      )
   }
 }
