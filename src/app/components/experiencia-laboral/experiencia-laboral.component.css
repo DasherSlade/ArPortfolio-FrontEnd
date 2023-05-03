@@ -3,9 +3,10 @@
   padding: 100px 0;
 }
 
-.titular {
+#experiencia .titular {
   margin-bottom: 50px;
 }
+
 
 .btn-group {
   position: absolute;
@@ -15,27 +16,39 @@
 }
 
 .btn-group button {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
-.btn-exp:hover {
-  background-color: #c5466b;
+.edit-exp {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: background-color 0.6s ease-out, color 0.6s ease-out;
+}
+
+.edit-exp:hover {
+  background-color: #19197a;
+  cursor: pointer;
+}
+
+.delete-exp{
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: background-color 0.6s ease-out, color 0.6s ease-out;
+}
+
+.delete-exp:hover{
+  background-color: #831e1e;
+  cursor: pointer;
 }
 
 .card-estilo {
   margin-top: 50px;
-}
-
-.card {
-  background-color: #fff;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-5px);
 }
 
 .card-img-top {
@@ -71,10 +84,28 @@
   font-size: 18px;
   border: none;
   transition: background-color 0.6s ease-out, color 0.6s ease-out;
+  margin-left: 85px;
 }
 
 .nueva-exp:hover {
   background-color: #d64a6f;
   cursor: pointer;
+}
+
+/* Media queries */
+
+@media (max-width: 767.98px) {
+  .card {
+    width: 250px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .container {
+    text-align: center;
+  }
+  .card {
+    margin: 0 auto;
+  }
 }
 

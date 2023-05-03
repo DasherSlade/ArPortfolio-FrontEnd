@@ -6,13 +6,13 @@
     </button>
     <div class="row">
       <!-- Card -->
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" *ngFor="let Educacion of educacion">
+      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4" *ngFor="let Educacion of educacion">
         <div class="card shadow p-3">
           <div class="btn-group">
             <!--Botones de edición-->
-            <button *ngIf="isLogged" type="button" class="rounded-circle" routerLink="/editedu/{{Educacion.id}}"><i
+            <button *ngIf="isLogged" type="button" class="edit-edu rounded-circle" routerLink="/editedu/{{Educacion.id}}"><i
               class="bi bi-pencil-square"></i></button>
-            <button *ngIf="isLogged" type="button" class="rounded-circle" (click)="delete(Educacion.id)"><i
+            <button *ngIf="isLogged" type="button" class="delete-edu rounded-circle" (click)="delete(Educacion.id)"><i
                 class="bi bi-x-circle"></i></button>
           </div>
           <img src="../../../assets/img/logocolegio.png" class="card-img-top img-fluid" alt="logo-cole">
