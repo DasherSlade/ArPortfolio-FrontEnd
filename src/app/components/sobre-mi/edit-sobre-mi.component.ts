@@ -11,8 +11,13 @@ import { PersonaService } from 'src/app/service/persona.service';
 })
 export class EditSobreMiComponent implements OnInit {
   persona: persona = null;
+  cargandoImagen: boolean = false;
 
-  constructor(private activatedRouter: ActivatedRoute, private personaService: PersonaService, private router: Router, public imageService: ImageService) { }
+  constructor(
+    private activatedRouter: ActivatedRoute, 
+    private personaService: PersonaService, 
+    private router: Router, 
+    public imageService: ImageService) { }
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
@@ -44,6 +49,10 @@ export class EditSobreMiComponent implements OnInit {
     const id = this.activatedRouter.snapshot.params['id'];
     const name = "perfil_" + id;
     const file = $event.target.files[0];
-    this.imageService.uploadImage(file, name);
+    this.cargandoImagen = true;
+    this.imageService.uploadImage(file, name).then(() => {
+      this.cargandoImagen = false
+    });
+    console.log('Valor del parámetro id:', id);
   }
 }

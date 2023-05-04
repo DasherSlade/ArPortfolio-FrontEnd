@@ -1,45 +1,24 @@
 <section id="proyectos">
     <div class="container my-3">
     <h3 class="titular text-center">Mis proyectos</h3>
+    <button type="button" class="btn btn-dark nuevo-pro" routerLink="/nuevopro" *ngIf="isLogged">
+      Nuevo proyecto
+    </button>
       <div class="row">
-          
-      <!-- tarjeta 1 -->
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+      <!-- tarjeta -->
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" *ngFor="let Proyectos of proyectos">
         <div class="card shadow">
+          <div class="btn-group">
+            <!--Botones de edición-->
+            <button *ngIf="isLogged" type="button" class="edit-pro rounded-circle" routerLink="/editpro/{{Proyectos.id}}"><i
+              class="bi bi-pencil-square"></i></button>
+            <button *ngIf="isLogged" type="button" class="delete-pro rounded-circle" (click)="delete(Proyectos.id)"><i
+                class="bi bi-x-circle"></i></button>
+          </div>
           <img src="../../../assets/img/proyectos-ejemplo.png" class="card-img-top img-fluid" alt="logo-cole">
             <div class="card-body">
-              <h4 class="card-title">Nombre del proyecto</h4>
-              <p class="card-text"><h5>Tecnologias utilizadas.</h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate rerum minus temporibus sunt adipisci eligendi iure. Voluptatibus libero illo nihil!</div>
-        </div>
-      </div>
-
-      <!-- tarjeta 2 -->
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <div class="card shadow">
-          <img src="../../../assets/img/proyectos-ejemplo.png" class="card-img-top img-fluid" alt="logo-cole">
-            <div class="card-body">
-              <h4 class="card-title">Nombre del proyecto</h4>
-              <p class="card-text"><h5>Tecnologias utilizadas.</h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate rerum minus temporibus sunt adipisci eligendi iure. Voluptatibus libero illo nihil!</div>
-        </div>
-      </div>
-          
-      <!-- tarjeta 3 -->
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <div class="card shadow">
-          <img src="../../../assets/img/proyectos-ejemplo.png" class="card-img-top img-fluid" alt="logo-cole">
-            <div class="card-body">
-              <h4 class="card-title">Nombre del proyecto</h4>
-              <p class="card-text"><h5>Tecnologias utilizadas.</h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate rerum minus temporibus sunt adipisci eligendi iure. Voluptatibus libero illo nihil!</div>
-        </div>
-      </div>
-
-      <!-- tarjeta 4 -->
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <div class="card shadow">
-          <img src="../../../assets/img/proyectos-ejemplo.png" class="card-img-top img-fluid" alt="logo-cole">
-            <div class="card-body">
-              <h4 class="card-title">Nombre del proyecto</h4>
-              <p class="card-text"><h5>Tecnologias utilizadas.</h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate rerum minus temporibus sunt adipisci eligendi iure. Voluptatibus libero illo nihil!</div>
+              <h4 class="card-title">{{Proyectos.nombrePro}}</h4>
+              <p class="card-text">{{Proyectos.descripcionPro}}</div>
         </div>
       </div>
           

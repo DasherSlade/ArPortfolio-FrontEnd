@@ -6,7 +6,7 @@
 }
 
 .foto-de-perfil{
-    max-width: 350px;
+    max-width: 300px;
     margin-top: 60px;
     margin-right: 80px;
     align-items: end;
@@ -52,7 +52,7 @@
 }
 
 .edit-persona {
-    right: 6rem;
+    right: 96px;
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
@@ -65,4 +65,20 @@
   .edit-persona:hover {
     background-color: #d64a6f;
     cursor: pointer;
+  }
+
+ /* Media queries */
+ @media (max-width: 767px) {
+    #mi .container {
+      text-align: center;
+    }
+    .foto-de-perfil {
+      margin: 0 auto;
+    }
+  }
+
+ @media (min-width: 768px) and (max-width: 991.98px){
+    .edit-persona {
+      right: -10px;
+    }
   }

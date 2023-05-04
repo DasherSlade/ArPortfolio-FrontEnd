@@ -4,7 +4,7 @@
 
 #educacion .card {
   margin-bottom: 5%;
-  max-width: 350px;
+  max-width: 300px;
 }
 
 #educacion .row {
@@ -88,6 +88,13 @@
     text-align: center;
   }
   .card {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .new-edu {
+    display: block;
     margin: 0 auto;
   }
 }

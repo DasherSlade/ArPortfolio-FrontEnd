@@ -15,7 +15,7 @@
             <button *ngIf="isLogged" type="button" class="delete-edu rounded-circle" (click)="delete(Educacion.id)"><i
                 class="bi bi-x-circle"></i></button>
           </div>
-          <img src="../../../assets/img/logocolegio.png" class="card-img-top img-fluid" alt="logo-cole">
+          <img src="{{Educacion.img}}" class="card-img-top img-fluid" alt="logo-cole">
           <div class="card-body bg-light">
             <h4 class="card-title">{{Educacion.nombreEdu}}</h4>
             <p class="card-text text-dark">{{Educacion.descripcionEdu}}</p>

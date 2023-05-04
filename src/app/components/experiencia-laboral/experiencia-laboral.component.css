@@ -109,3 +109,10 @@
   }
 }
 
+@media (max-width: 991.98px) {
+  .nueva-exp {
+    display: block;
+    margin: 0 auto;
+  }
+}
+

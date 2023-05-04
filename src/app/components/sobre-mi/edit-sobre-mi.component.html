@@ -17,6 +17,9 @@
                 <div class="form-group">
                     <label for="img">Imagen sobre mi</label>
                     <input type="file" class="form-control" id="img" name="img" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
+                    <div *ngIf="cargandoImagen" class="spinner-border spinner-border-sm" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                      </div>
                 </div>
                 <button class="btn btn-primary">
                     Editar persona
