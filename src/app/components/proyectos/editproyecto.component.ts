@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Proyectos } from 'src/app/model/proyectos';
+import { ImageService } from 'src/app/service/image.service';
 import { ProyectosService } from 'src/app/service/proyectos.service';
 
 @Component({
@@ -10,11 +11,13 @@ import { ProyectosService } from 'src/app/service/proyectos.service';
 })
 export class EditproyectoComponent implements OnInit {
   proyectos: Proyectos = null;
+  cargandoImagen: boolean = false;
   
   constructor(
     private proyectosS: ProyectosService,
     private activatedRouter : ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public imageService: ImageService
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +34,7 @@ export class EditproyectoComponent implements OnInit {
 
   onUpdate(): void{
     const id = this.activatedRouter.snapshot.params['id'];
+    this.proyectos.img = this.imageService.url
     this.proyectosS.update(id, this.proyectos).subscribe(
       data => {
         this.router.navigate(['']);
@@ -40,4 +44,15 @@ export class EditproyectoComponent implements OnInit {
       }
     )
   }
+
+  uploadImage($event: any) {
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "proyecto_" + id;
+    const file = $event.target.files[0];
+    this.cargandoImagen = true;
+    this.imageService.uploadImage(file, name).then(() => {
+      this.cargandoImagen = false
+  });
+  console.log('Valor del parámetro id:', id);
+}
 }

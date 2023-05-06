@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
+import { ImageService } from 'src/app/service/image.service';
 import { SExperienciaService } from 'src/app/service/s-experiencia.service';
 
 @Component({
@@ -9,10 +10,15 @@ import { SExperienciaService } from 'src/app/service/s-experiencia.service';
   styleUrls: ['./edit-experiencia.component.css']
 })
 export class EditExperienciaComponent implements OnInit{
-
   expLab: Experiencia = null;
+  cargandoImagen: boolean = false;
 
-  constructor(private sExperiencia: SExperienciaService, private activatedRouter: ActivatedRoute, private router: Router) { }
+  constructor(
+    private sExperiencia: SExperienciaService,
+    private activatedRouter: ActivatedRoute, 
+    private router: Router,
+    public imageService: ImageService
+    ) { }
 
 
   ngOnInit(): void {
@@ -29,6 +35,7 @@ export class EditExperienciaComponent implements OnInit{
 
   onUpdate(): void{
     const id = this.activatedRouter.snapshot.params['id'];
+    this.expLab.img = this.imageService.url
     this.sExperiencia.update(id, this.expLab).subscribe(
       data => {
         this.router.navigate(['']);
@@ -39,4 +46,14 @@ export class EditExperienciaComponent implements OnInit{
     )
   }
 
+  uploadImage($event: any) {
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "experiencia_" + id;
+    const file = $event.target.files[0];
+    this.cargandoImagen = true;
+    this.imageService.uploadImage(file, name).then(() => {
+      this.cargandoImagen = false
+  });
+  console.log('Valor del parámetro id:', id);
+}
 }

@@ -15,7 +15,7 @@
             <button *ngIf="isLogged" type="button" class="delete-pro rounded-circle" (click)="delete(Proyectos.id)"><i
                 class="bi bi-x-circle"></i></button>
           </div>
-          <img src="../../../assets/img/proyectos-ejemplo.png" class="card-img-top img-fluid" alt="logo-cole">
+          <img src="{{Proyectos.img}}" class="card-img-top img-fluid" alt="logo-cole">
             <div class="card-body">
               <h4 class="card-title">{{Proyectos.nombrePro}}</h4>
               <p class="card-text">{{Proyectos.descripcionPro}}</div>
