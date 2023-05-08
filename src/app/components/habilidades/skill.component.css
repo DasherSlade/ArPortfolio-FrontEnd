@@ -5,7 +5,6 @@
     background-size: cover;
     background-position: center center;
     padding: 100px 0;
-    text-align: center;
     }
     
 .titular-habilidad{
@@ -15,9 +14,33 @@
     text-decoration-thickness: 4px;
     }
 
-.row div{
-    margin: 30px 0;
-    }
+.row{
+    margin-top: 70px;
+}
     
+.new-skill{
+    margin-bottom: 55px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    transition: background-color 0.6s ease-out, color 0.6s ease-out;
+    margin-left: 85px;
+}
 
-    
+.new-skill:hover{
+    background-color: #d64a6f;
+    cursor: pointer;
+}
+
+/* Media queries */
+  
+  @media (max-width: 999px) {
+    .new-skill {
+      /* Estilos para pantallas menores a 1000px de ancho */
+      display: block;
+      margin: 0 auto;
+    }
+  }

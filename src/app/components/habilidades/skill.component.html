@@ -1,12 +1,14 @@
 <section id="habilidades">
-    <div class="row">
-    <h3 class="titular-habilidad">HABILIDADES</h3>
-    <div class="col-lg-2">
-        <button type="button" routerLink="/newskill" class="btn btn-dark" *ngIf="isLogged">Nueva skill</button>
-    </div>
-        
+    <div class="container">
+    <h3 class="titular-habilidad text-center">HABILIDADES</h3>
+    <button type="button" routerLink="/newskill" class="btn btn-dark new-skill" *ngIf="isLogged">Nueva skill</button>
+    <div class="row">  
     <!-- skill 1 -->
     <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4" *ngFor="let skill of skill">
+        <button *ngIf="isLogged" type="button" class="btn-skill" routerLink="/editskill/{{skill.id}}"><i
+            class="bi bi-pencil-square"></i></button>
+        <button *ngIf="isLogged" type="button" class="btn-del ml-2" (click)="delete(skill.id)"><i
+            class="bi bi-x-circle"></i></button>
         <circle-progress
             [percent]="(skill.porcentaje)"
             [radius]="120"
@@ -23,11 +25,7 @@
             [animation]="true"
             [animationDuration]="600">
         </circle-progress>
-
-        <button *ngIf="isLogged" type="button" class="btn-skill" routerLink="/editskill/{{skill.id}}"><i
-            class="bi bi-pencil-square"></i></button>
-        <button *ngIf="isLogged" type="button" class="btn-del ml-2" (click)="delete(skill.id)"><i
-            class="bi bi-x-circle"></i></button>
     </div>
    </div>
+</div>
 </section>

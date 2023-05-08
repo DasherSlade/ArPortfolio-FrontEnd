@@ -34,7 +34,9 @@ export class EditproyectoComponent implements OnInit {
 
   onUpdate(): void{
     const id = this.activatedRouter.snapshot.params['id'];
-    this.proyectos.img = this.imageService.url
+    if (this.imageService.url) {
+      this.proyectos.img = this.imageService.url;
+    }
     this.proyectosS.update(id, this.proyectos).subscribe(
       data => {
         this.router.navigate(['']);

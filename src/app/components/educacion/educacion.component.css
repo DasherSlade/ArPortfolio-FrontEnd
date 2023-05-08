@@ -1,15 +1,19 @@
 #educacion .titular {
-  padding-bottom: 7%;
+  padding-bottom: 3%;
 }
 
 #educacion .card {
   margin-bottom: 5%;
-  max-width: 300px;
+  height: 450px;
 }
 
 #educacion .row {
   display: flex;
   margin: 30px 0;
+}
+
+#educacion .card-body{
+  overflow: auto;
 }
 
 #educacion .card-body h4 {
@@ -23,6 +27,12 @@
 
 #educacion .card {
   position: relative;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
 }
 
 .btn-group {
@@ -82,6 +92,13 @@
 }
 
 /* Media queries */
+
+@media (max-width: 767.98px) {
+  .card {
+    width: 300px;
+    height: 350px;
+  }
+}
 
 @media (max-width: 991.98px) {
   .container {
