@@ -26,16 +26,21 @@ export class NewExperienciaComponent implements OnInit {
 
   onCreate(): void {
     const expe = new Experiencia(this.nombreExp, this.descripcionExp, this.img);
-    expe.img = this.imageService.url;
-    this.sExperiencia.save(expe).subscribe(
-      data => {
-        alert("Experiencia añadida");
-        this.router.navigate(['']);
-      }, err => {
-        alert("Falló");
-        this.router.navigate(['']);
+    const imageName = 'experiencia_' + Date.now();
+    this.imageService.getImages(imageName).then(url => {
+      if (url) {
+        expe.img = url;
       }
-    )
+      this.sExperiencia.save(expe).subscribe(
+        data => {
+          alert("Experiencia añadida");
+          this.router.navigate(['']);
+        }, err => {
+          alert("Falló");
+          this.router.navigate(['']);
+        }
+      )
+    });
   }
 
   uploadImage($event: any) {
@@ -44,7 +49,11 @@ export class NewExperienciaComponent implements OnInit {
     this.cargandoImagen = true;
     this.imageService.uploadImage(file, name).then(() => {
       this.cargandoImagen = false;
-      this.img = this.imageService.url;
+      this.imageService.getImages(name).then(url => {
+        if (url) {
+          this.img = url;
+        }
+      });
     });
   }
 }

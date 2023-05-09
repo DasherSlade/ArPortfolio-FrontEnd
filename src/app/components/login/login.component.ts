@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/model/login-usuario';
 import { AuthService } from 'src/app/service/auth.service';
+import { ImageService } from 'src/app/service/image.service';
 import { TokenService } from 'src/app/service/token.service';
 
 
@@ -11,7 +12,6 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit{
-
   isLogged = false;
   isLogginFail = false;
   loginUsuario!: LoginUsuario;
@@ -19,15 +19,31 @@ export class LoginComponent implements OnInit{
   password!: string;
   roles: string[] = [];
   errMsj!: string;
+  logoUrl: string = '';
+  loginFondoUrl: string = '';
 
-  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) {}
+  constructor(
+    private tokenService: TokenService, 
+    private authService: AuthService, 
+    private router: Router,
+    private imageService: ImageService
+    ) {}
 
   ngOnInit(): void {
     if(this.tokenService.getToken()){
       this.isLogged = true;
       this.isLogginFail = false;
       this.roles = this.tokenService.getAuthorities();
-    } 
+    }
+    
+    const imageName = 'Logo.png';
+    this.imageService.getImages(imageName).then(url => {
+      this.logoUrl = url;
+    });
+    const otherImageName = 'login-fondo.jpeg';
+    this.imageService.getImages(otherImageName).then(url => {
+      this.loginFondoUrl = url;
+    });
   }
 
   onLogin(): void{

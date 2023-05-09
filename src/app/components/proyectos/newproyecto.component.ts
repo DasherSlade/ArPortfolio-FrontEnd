@@ -27,16 +27,21 @@ export class NewproyectoComponent implements OnInit{
 
   onCreate(): void {
     const proyectos = new Proyectos(this.nombrePro, this.descripcionPro, this.img);
-    proyectos.img = this.imageService.url;
-    this.proyectosS.save(proyectos).subscribe(
-      data => {
-        alert("Proyecto añadido correctamente");
-        this.router.navigate(['']);
-      }, err => {
-        alert("falló");
-        this.router.navigate(['']);
+    const imageName = 'proyecto_' + Date.now();
+    this.imageService.getImages(imageName).then(url => {
+      if (url) {
+        proyectos.img = url;
       }
-    )
+      this.proyectosS.save(proyectos).subscribe(
+        data => {
+          alert("Proyecto añadido correctamente");
+          this.router.navigate(['']);
+        }, err => {
+          alert("falló");
+          this.router.navigate(['']);
+        }
+      )
+    });
   }
 
   uploadImage($event: any) {
@@ -45,7 +50,11 @@ export class NewproyectoComponent implements OnInit{
     this.cargandoImagen = true;
     this.imageService.uploadImage(file, name).then(() => {
       this.cargandoImagen = false;
-      this.img = this.imageService.url;
+      this.imageService.getImages(name).then(url => {
+        if (url) {
+          this.img = url;
+        }
+      });
     });
   }
 }

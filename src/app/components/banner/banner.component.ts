@@ -29,7 +29,7 @@ export class BannerComponent implements OnInit {
       this.isLogged = false;
     }
 
-    const imageName = 'banner.png';
+    const imageName = '';
     this.imageService.getImages(imageName).then(url => {
       this.skillBackgroundUrl = url;
     });

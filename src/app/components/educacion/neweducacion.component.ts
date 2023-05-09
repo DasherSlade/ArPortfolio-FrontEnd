@@ -16,26 +16,31 @@ export class NeweducacionComponent implements OnInit {
   img: string;
 
   constructor(
-    private educacionS: EducacionService, 
+    private educacionS: EducacionService,
     private router: Router,
     public imageService: ImageService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
   }
 
   onCreate(): void {
     const educacion = new Educacion(this.nombreEdu, this.descripcionEdu, this.img);
-    educacion.img = this.imageService.url;
-    this.educacionS.save(educacion).subscribe(
-      data => {
-        alert("Educacion añadida correctamente");
-        this.router.navigate(['']);
-      }, err => {
-        alert("falló");
-        this.router.navigate(['']);
+    const imageName = 'educacion_' + Date.now();
+    this.imageService.getImages(imageName).then(url => {
+      if (url) {
+        educacion.img = url;
       }
-    )
+      this.educacionS.save(educacion).subscribe(
+        data => {
+          alert("Educacion añadida correctamente");
+          this.router.navigate(['']);
+        }, err => {
+          alert("falló");
+          this.router.navigate(['']);
+        }
+      )
+    });
   }
 
   uploadImage($event: any) {
@@ -44,7 +49,11 @@ export class NeweducacionComponent implements OnInit {
     this.cargandoImagen = true;
     this.imageService.uploadImage(file, name).then(() => {
       this.cargandoImagen = false;
-      this.img = this.imageService.url;
+      this.imageService.getImages(name).then(url => {
+        if (url) {
+          this.img = url;
+        }
+      });
     });
   }
 }
