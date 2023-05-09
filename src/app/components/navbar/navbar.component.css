@@ -25,3 +25,17 @@
 .btn{
     margin-left: -7%;
 }
+
+/* Media queries */
+
+@media (max-width: 365px) {
+    .logo-de-ap {
+      width: 70%;
+    }
+    .navbar-brand b {
+        font-size: 0.8rem;
+      }
+      .navbar-nav b {
+        font-size: 0.4rem;
+      }
+  }

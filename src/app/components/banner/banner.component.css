@@ -1,11 +1,12 @@
-#banner{
-    background-image: linear-gradient(rgba(0,0,0, .3),rgba(0,0,0, .8)), url('../../../assets/img/banner.png');
+#banner {
+    background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .8)),
+        url('https://firebasestorage.googleapis.com/v0/b/arprograma-front.appspot.com/o/imagen%2Fbanner.png?alt=media&token=5e852884-8f9a-4a9b-be71-ad72894e1fab');
     background-size: cover;
     background-position: center center;
     height: 70vh;
 }
 
-.texto-banner{
+.texto-banner {
     max-width: 1100x;
     height: 70vh;
     margin: auto;
@@ -16,25 +17,25 @@
     justify-content: center;
 }
 
-.bienvenidos{
+.bienvenidos {
     font-size: 16px;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 5px;
 }
 
-.texto-banner h2{
+.texto-banner h2 {
     font-size: 40px;
     margin-bottom: 25px;
     text-align: center;
 }
 
-.texto-banner h2 span{
+.texto-banner h2 span {
     font-size: 25px;
     color: #d64a6f;
 }
 
-.texto-banner a{
+.texto-banner a {
     text-decoration: none;
     display: inline-block;
     margin: 25px;
@@ -47,6 +48,27 @@
     transition: .5s;
 }
 
-.texto-banner a:hover{
+.texto-banner a:hover {
     background-color: #d64a6f;
+}
+
+/* Media queries */
+
+@media (max-width: 365px) {
+    .bienvenidos {
+        font-size: 0.8rem;
+    }
+
+    .texto-banner h2 {
+        font-size: 1.2rem;
+    }
+
+    .texto-banner p {
+        font-size: 0.8rem;
+    }
+
+    .texto-banner a {
+        font-size: 0.8rem;
+        padding: 10px 15px;
+    }
 }

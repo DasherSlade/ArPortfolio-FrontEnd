@@ -34,15 +34,20 @@ export class EditSobreMiComponent implements OnInit {
 
   onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.persona.img = this.imageService.url
-    this.personaService.update(id, this.persona).subscribe(
-      data => {
-        this.router.navigate(['']);
-      }, err => {
-        alert("Error al modificar la persona");
-        this.router.navigate(['']);
+    const imageName = "perfil_" + id;
+    this.imageService.getImages(imageName).then(url => {
+      if (url) {
+        this.persona.img = url;
       }
-    )
+      this.personaService.update(id, this.persona).subscribe(
+        data => {
+          this.router.navigate(['']);
+        }, err => {
+          alert("Error al modificar la persona");
+          this.router.navigate(['']);
+        }
+      )
+    });
   }
 
   uploadImage($event: any) {

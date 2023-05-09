@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ImageService } from 'src/app/service/image.service';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
@@ -8,10 +9,14 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
   isLogged = false;
+  navbarLogoUrl: string = '';
   
-  constructor(private router:Router, private tokenService: TokenService) { }
+  constructor(
+    private router:Router, 
+    private tokenService: TokenService,
+    private imageService: ImageService
+    ) { }
 
   ngOnInit(): void {
     if(this.tokenService.getToken()){
@@ -19,6 +24,11 @@ export class NavbarComponent implements OnInit {
     } else{
       this.isLogged = false;
     }
+
+    const imageName = 'APLogo.png';
+    this.imageService.getImages(imageName).then(url => {
+      this.navbarLogoUrl = url;
+    });
   }
 
   onLogOut():void{

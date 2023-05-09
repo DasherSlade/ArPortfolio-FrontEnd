@@ -19,18 +19,22 @@ export class ImageService {
       .catch(error => console.log(error));
   }
 
-  getImages(name: string) {
-    const imagesRef = ref(this.storage, 'imagen')
-    list(imagesRef)
-      .then(async response => {
+  getImages(name: string): Promise<string> {
+    const imagesRef = ref(this.storage, 'imagen');
+    return list(imagesRef)
+      .then(async (response) => {
         for (let item of response.items) {
           if (item.name === name) {
-            this.url = await getDownloadURL(item);
-            console.log("la url es: " + this.url);
-            break;
+            const url = await getDownloadURL(item);
+            console.log("la url es: " + url);
+            return url;
           }
         }
+        return ''; // Devolver un valor por defecto en caso de que no se encuentre una imagen con el nombre especificado
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error);
+        return ''; // Devolver un valor por defecto en caso de que ocurra un error
+      });
   }
 }

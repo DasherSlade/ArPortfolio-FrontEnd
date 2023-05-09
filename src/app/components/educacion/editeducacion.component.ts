@@ -32,21 +32,24 @@ export class EditeducacionComponent implements OnInit {
     )
   }
 
-  onUpdate(): void{
+  onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    if (this.imageService.url) {
-      this.educacion.img = this.imageService.url;
-    }
-    this.educacionS.update(id, this.educacion).subscribe(
-      data => {
-        this.router.navigate(['']);
-      }, err => {
-        alert("Error al modificar la educacion");
-        this.router.navigate(['']);
+    const imageName = "educacion_" + id;
+    this.imageService.getImages(imageName).then(url => {
+      if (url) {
+        this.educacion.img = url;
       }
-    )
+      this.educacionS.update(id, this.educacion).subscribe(
+        data => {
+          this.router.navigate(['']);
+        }, err => {
+          alert("Error al modificar la educacion");
+          this.router.navigate(['']);
+        }
+      )
+    });
   }
-
+  
   uploadImage($event: any) {
     const id = this.activatedRouter.snapshot.params['id'];
     const name = "educacion_" + id;

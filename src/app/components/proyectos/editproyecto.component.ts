@@ -32,19 +32,22 @@ export class EditproyectoComponent implements OnInit {
     )
   }
 
-  onUpdate(): void{
+  onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    if (this.imageService.url) {
-      this.proyectos.img = this.imageService.url;
-    }
-    this.proyectosS.update(id, this.proyectos).subscribe(
-      data => {
-        this.router.navigate(['']);
-      }, err => {
-        alert("Error al modificar el proyecto");
-        this.router.navigate(['']);
+    const imageName = "proyecto_" + id;
+    this.imageService.getImages(imageName).then(url => {
+      if (url) {
+        this.proyectos.img = url;
       }
-    )
+      this.proyectosS.update(id, this.proyectos).subscribe(
+        data => {
+          this.router.navigate(['']);
+        }, err => {
+          alert("Error al modificar el proyecto");
+          this.router.navigate(['']);
+        }
+      )
+    });
   }
 
   uploadImage($event: any) {

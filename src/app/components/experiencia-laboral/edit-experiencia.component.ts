@@ -9,43 +9,46 @@ import { SExperienciaService } from 'src/app/service/s-experiencia.service';
   templateUrl: './edit-experiencia.component.html',
   styleUrls: ['./edit-experiencia.component.css']
 })
-export class EditExperienciaComponent implements OnInit{
+export class EditExperienciaComponent implements OnInit {
   expLab: Experiencia = null;
   cargandoImagen: boolean = false;
 
   constructor(
     private sExperiencia: SExperienciaService,
-    private activatedRouter: ActivatedRoute, 
+    private activatedRouter: ActivatedRoute,
     private router: Router,
     public imageService: ImageService
-    ) { }
+  ) { }
 
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
     this.sExperiencia.detail(id).subscribe(
-      data =>{
+      data => {
         this.expLab = data;
-      }, err =>{
+      }, err => {
         alert("Error al modificar experiencia");
         this.router.navigate(['']);
       }
     )
   }
 
-  onUpdate(): void{
+  onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    if (this.imageService.url) {
-      this.expLab.img = this.imageService.url;
-    }
-    this.sExperiencia.update(id, this.expLab).subscribe(
-      data => {
-        this.router.navigate(['']);
-      }, err =>{
-        alert("Error al modificar experiencia");
-        this.router.navigate(['']);
+    const imageName = "experiencia_" + id;
+    this.imageService.getImages(imageName).then(url => {
+      if (url) {
+        this.expLab.img = url;
       }
-    )
+      this.sExperiencia.update(id, this.expLab).subscribe(
+        data => {
+          this.router.navigate(['']);
+        }, err => {
+          alert("Error al modificar experiencia");
+          this.router.navigate(['']);
+        }
+      )
+    });
   }
 
   uploadImage($event: any) {
@@ -55,7 +58,7 @@ export class EditExperienciaComponent implements OnInit{
     this.cargandoImagen = true;
     this.imageService.uploadImage(file, name).then(() => {
       this.cargandoImagen = false
-  });
-  console.log('Valor del parámetro id:', id);
-}
+    });
+    console.log('Valor del parámetro id:', id);
+  }
 }

@@ -1,46 +1,106 @@
-#habilidades{
-    background: linear-gradient(#d64a6f, rgba(33,16,16, .8)), url('../../../assets/img/habilidad-foto.png');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    padding: 100px 0;
-    }
-    
-.titular-habilidad{
-    margin-bottom: 8%;
-    text-decoration: underline;
-    text-decoration-color: #dddbdb;
-    text-decoration-thickness: 4px;
-    }
-
-.row{
-    margin-top: 70px;
-}
-    
-.new-skill{
-    margin-bottom: 55px;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 18px;
-    border: none;
-    transition: background-color 0.6s ease-out, color 0.6s ease-out;
-    margin-left: 85px;
+#habilidades {
+  background: linear-gradient(#d64a6f, rgba(33, 16, 16, .8)),
+    url('https://firebasestorage.googleapis.com/v0/b/arprograma-front.appspot.com/o/imagen%2Ffondo-skill.png?alt=media&token=8669e8c5-a472-4613-a54d-94219e5031e6');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 100px 0;
 }
 
-.new-skill:hover{
-    background-color: #d64a6f;
-    cursor: pointer;
+.titular-habilidad {
+  margin-bottom: 8%;
+  text-decoration: underline;
+  text-decoration-color: #dddbdb;
+  text-decoration-thickness: 4px;
+}
+
+.row {
+  margin-top: 70px;
+}
+
+.skill-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-group {
+  position: absolute;
+  top: 0;
+  right: -1%; /* margen derecho fijo de 5% */
+}
+
+.btn-group button {
+  margin-left: 5px;
+}
+
+.edit-skill {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: background-color 0.6s ease-out, color 0.6s ease-out;
+}
+
+.edit-skill:hover {
+  background-color: #19197a;
+  cursor: pointer;
+}
+
+.delete-skill {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: background-color 0.6s ease-out, color 0.6s ease-out;
+}
+
+.delete-skill:hover {
+  background-color: #831e1e;
+  cursor: pointer;
+}
+
+.new-skill {
+  margin-bottom: 55px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  border: none;
+  transition: background-color 0.6s ease-out, color 0.6s ease-out;
+  margin-left: 85px;
+}
+
+.new-skill:hover {
+  background-color: #d64a6f;
+  cursor: pointer;
 }
 
 /* Media queries */
-  
-  @media (max-width: 999px) {
-    .new-skill {
-      /* Estilos para pantallas menores a 1000px de ancho */
-      display: block;
-      margin: 0 auto;
-    }
+
+@media (max-width: 365px) {
+  .new-skill{
+    font-size: 15px;
   }
+  circle-progress {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 999px) {
+  .new-skill {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .btn-group {
+    right: 4%;
+  }
+}

@@ -68,6 +68,20 @@
   }
 
  /* Media queries */
+
+ @media (max-width: 365px) {
+  #mi .foto-de-perfil {
+    width: 220px;
+    margin: 0;
+  }
+  #mi .edit-persona {
+    font-size: 13px;
+    right: auto;
+    left: 30%;
+    transform: translate(-50%, 0);
+  }
+}
+
  @media (max-width: 767px) {
     #mi .container {
       text-align: center;
