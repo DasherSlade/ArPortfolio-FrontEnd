@@ -72,7 +72,7 @@
  /* Media queries */
 
  @media (max-width: 365px) {
-  #mi .foto-de-perfil {
+  #mi .foto-de-perfil img {
     width: 220px;
     margin: 0;
   }

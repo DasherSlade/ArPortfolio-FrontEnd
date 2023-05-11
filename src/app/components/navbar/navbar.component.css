@@ -33,6 +33,19 @@
       width: 70%;
     }
     .navbar-brand b {
+        font-size: 1rem;
+      }
+      .navbar-nav b {
+        font-size: 0.7rem;
+      }
+  }
+
+  @media (max-width: 285px) {
+    .logo-de-ap {
+      width: 60%;
+      margin-right: -15px;
+    }
+    .navbar-brand b {
         font-size: 0.8rem;
       }
       .navbar-nav b {

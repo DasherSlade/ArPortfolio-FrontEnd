@@ -103,13 +103,30 @@
 
 @media (max-width: 365px) {
   .card {
-    width: 200px;
-    height: 250px;
+    width: 270px;
+    height: 350px;
   }
 
   .card-img-top {
     width: 100%;
-    height: 150px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .nueva-exp {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 330px) {
+  .card {
+    width: 220px;
+    height: 280px;
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 170px;
     object-fit: cover;
   }
 
