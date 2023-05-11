@@ -27,7 +27,6 @@ import { EditSobreMiComponent } from './components/sobre-mi/edit-sobre-mi.compon
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-import { LoadingComponentComponent } from './components/loading-component/loading-component.component';
 import { NewproyectoComponent } from './components/proyectos/newproyecto.component';
 import { EditproyectoComponent } from './components/proyectos/editproyecto.component';
 
@@ -53,7 +52,6 @@ import { EditproyectoComponent } from './components/proyectos/editproyecto.compo
     EditSkillComponent,
     NewSkillComponent,
     EditSobreMiComponent,
-    LoadingComponentComponent,
     NewproyectoComponent,
     EditproyectoComponent,
   ],

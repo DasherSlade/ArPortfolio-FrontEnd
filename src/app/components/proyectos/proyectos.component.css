@@ -1,27 +1,27 @@
-#proyectos .card{
+.card{
     max-width: 675px;
     margin: 0 10px;
-    margin-bottom: 5%;
+    margin-bottom: 6%;
     filter: grayscale(1);
     object-fit: cover;
     transition: .5s;
 }
 
-#proyectos .row{
+.row{
     display: flex;
     justify-content: space-between;
     margin: 30px 0;
 }
 
-#proyectos .card img{
+.card img{
     max-height: 350px;
 }
 
-#proyectos .card:hover{
+.card:hover{
     filter: grayscale(0);
 }
 
-#proyectos .card-body{
+.card-body{
     position: absolute;
     left: 0;
     background-color: rgba(0, 0, 0, .8);
@@ -33,7 +33,12 @@
     transition: .5s;
 }
 
-#proyectos .card:hover .card-body{
+.card-text{
+  color: white;
+  white-space: pre-line;
+}
+
+.card:hover .card-body{
     opacity: 1;
     bottom: 0;
 }

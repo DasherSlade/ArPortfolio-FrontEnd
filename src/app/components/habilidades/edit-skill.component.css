@@ -1,0 +1,115 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container h1 {
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #000000;  
+    text-decoration: underline;
+    text-decoration-color: #d3d3d3;
+    text-decoration-thickness: 5px;
+    text-align: center;
+    margin-bottom: 120px;
+  }
+
+.form-group {
+    margin-top: 45px;
+}
+
+.form-group label {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 25px;
+    color: #474747;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(0, 123, 255, .6);
+}
+
+.btn {
+    margin-top: 22px;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-dark {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.btn-dark:hover {
+    color: #fff;
+    background-color: #23272b;
+    border-color: #1d2124;
+}
+
+.input-group {
+    flex-wrap: nowrap;
+}
+
+.input-group-text {
+    background-color: #9c1010;
+    color: black;
+    margin-right: 10px;
+}
+
+/* Media queries */
+
+@media (max-width: 340px) {
+    .container h1 {
+      font-size: 18px;
+      margin-bottom: 50px;
+    }
+    
+    .form-group label {
+      font-size: 14px;
+    }
+    
+    .form-control {
+      font-size: 12px;
+      padding: 5px;
+    }
+    
+    .btn {
+      font-size: 12px;
+      padding: .2rem .4rem;
+    }
+    
+    .input-group-text {
+      font-size: 12px;
+      padding: 5px;
+    }
+  }

@@ -2,12 +2,12 @@
   <div class="container my-5">
     <h3 class="titular text-center mb-5 mt-5"> Formación educativa</h3>
     <button type="button" class="btn btn-dark new-edu" routerLink="/nuevaedu" *ngIf="isLogged">
-      Nueva Educacion
+      Nueva Educación
     </button>
     <div class="row">
       <!-- Card -->
       <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4" *ngFor="let Educacion of educacion">
-        <div class="card shadow p-3">
+        <div class="card shadow mb-3 p-3">
           <div class="btn-group">
             <!--Botones de edición-->
             <button *ngIf="isLogged" type="button" class="edit-edu rounded-circle" routerLink="/editedu/{{Educacion.id}}"><i
@@ -16,8 +16,8 @@
                 class="bi bi-x-circle"></i></button>
           </div>
           <div class="card-body bg-light">
-          <img src="{{Educacion.img}}" class="card-img-top img-fluid" alt="logo-cole">
-            <h4 class="card-title">{{Educacion.nombreEdu}}</h4>
+          <img src="{{Educacion.img}}" class="card-img-top img-fluid mb-3" alt="logo-cole">
+            <h3 class="card-title">{{Educacion.nombreEdu}}</h3>
             <p class="card-text text-dark">{{Educacion.descripcionEdu}}</p>
           </div>
         </div>
