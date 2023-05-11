@@ -26,7 +26,7 @@ export class ImageService {
         for (let item of response.items) {
           if (item.name === name) {
             const url = await getDownloadURL(item);
-            console.log("la url es: " + url);
+            //console.log("la url es: " + url);
             return url;
           }
         }
