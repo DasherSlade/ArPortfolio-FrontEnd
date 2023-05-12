@@ -36,6 +36,8 @@
 .card-text{
   color: white;
   white-space: pre-line;
+  max-height: 170px;
+  overflow-y: auto;
 }
 
 .card:hover .card-body{
