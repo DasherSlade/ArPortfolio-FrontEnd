@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit{
   errMsj!: string;
   logoUrl: string = '';
   loginFondoUrl: string = '';
+  isLoading = false;
 
   constructor(
     private tokenService: TokenService, 
@@ -47,8 +48,10 @@ export class LoginComponent implements OnInit{
   }
 
   onLogin(): void{
+    this.isLoading = true;
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
      this.authService.login(this.loginUsuario).subscribe(data => {
+        this.isLoading = false;
         this.isLogged = true;
         this.isLogginFail = false;
         this.tokenService.setToken(data.token);
@@ -57,8 +60,10 @@ export class LoginComponent implements OnInit{
         this.roles = data.authorities;
         this.router.navigate([''])
       }, err => {
+        this.isLoading = false;
         this.isLogged = false;
         this.isLogginFail = true;
+        console.log(err);
         this.errMsj = err.error.mensaje;
         console.log(this.errMsj);
       })

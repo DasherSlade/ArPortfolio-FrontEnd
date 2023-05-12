@@ -9,28 +9,34 @@
       <!-- Mi logo -->
       <div class="col bg-white p-5 rounded-end">
         <div class="text-end texto-logo">
-          <img src="https://firebasestorage.googleapis.com/v0/b/arprograma-front.appspot.com/o/imagen%2FLogo.png?alt=media&token=cd616394-00a4-4d66-add7-f0db229a185b" alt="mi-logo">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/arprograma-front.appspot.com/o/imagen%2FLogo.png?alt=media&token=cd616394-00a4-4d66-add7-f0db229a185b"
+            alt="mi-logo">
           <h2 class="fw-bold text-center py-5">Bienvenido!!</h2>
         </div>
-        
+
         <!-- Formulario login -->
         <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
           <div class="mb-4">
-            <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control" [(ngModel)]="nombreUsuario" required />
+            <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control" [ngClass]="{ 'is-invalid': isLogginFail }" [(ngModel)]="nombreUsuario"
+              required />
             <label for="nombreUsuario" class="form-label">Usuario</label>
           </div>
           <div class="mb-4">
-            <input type="password" id="password" class="form-control" name="password" [(ngModel)]="password" required>
+            <input type="password" id="password" class="form-control" name="password" [ngClass]="{ 'is-invalid': isLogginFail }" [(ngModel)]="password" required>
             <label for="password" class="form-label">Contraseña</label>
           </div>
-         <!-- <div class="mb-4 form-check">
+          <!-- <div class="mb-4 form-check">
             <input type="checkbox" class="form-check-input" name="connected">
             <label for="connected" class="form-check-label">Mantener sesión abierta</label>
           </div> -->
 
           <!-- Boton inicio -->
-          <div class="d-grid">
-            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+          <div class="d-flex justify-content-center align-items-center">
+            <button type="submit" class="btn btn-light me-2">Iniciar sesión</button>
+            <div *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status">
+              <span class="visually-hidden">Cargando...</span>
+            </div>
           </div>
         </form>
       </div>
